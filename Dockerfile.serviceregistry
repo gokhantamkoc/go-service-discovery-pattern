@@ -1,0 +1,12 @@
+FROM golang:1.21-alpine
+
+WORKDIR /app
+
+COPY ./cmd/server/serviceregistry/main.go .
+COPY go.mod .
+
+RUN go build -o registry .  
+
+EXPOSE 8080
+
+CMD ["./registry"]

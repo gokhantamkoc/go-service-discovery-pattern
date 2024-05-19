@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  registry:
+    image: gokhantamkoc/go-serviceregistry
+    ports:
+      - "8080:8080"
+
+  service:
+    image: gokhantamkoc/go-service
+    ports: 
+      - "8081:8081"
+    depends_on:
+      - registry

@@ -1,0 +1,13 @@
+FROM golang:1.21-alpine
+
+WORKDIR /app
+
+COPY ./cmd/server/service/main.go .
+COPY go.mod .
+
+
+RUN go build -o service .
+
+EXPOSE 8081
+
+CMD ["./service"]
